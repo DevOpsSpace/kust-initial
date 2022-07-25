@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: initial-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: initial
+  template:
+    metadata:
+      labels:
+        app: initial
+    spec:
+      containers:
+      - name: initial
+        image: snmmaurya/initial:latest
+        resources:
+          requests:
+            cpu: 200m
+            memory: 250Mi
+          limits:
+            cpu: 1M
+            memory: 1Gi
